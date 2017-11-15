@@ -47,7 +47,7 @@ namespace ClockRadio
                             ClockRadio.TurnAlarmOn();
                         }
                     }
-                    else if(ClockRadio.isAlarmOn)
+                    if(ClockRadio.isAlarmOn)
                     {
                         Console.WriteLine("Your alarm is set for " + ClockRadio.alarmTime + " o'clock.  Would you like to adjust it?");
                         yesNo = Console.ReadLine();

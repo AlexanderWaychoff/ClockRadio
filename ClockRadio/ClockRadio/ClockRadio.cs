@@ -30,7 +30,11 @@ namespace ClockRadio
         }
         public static string AdjustAlarm()
         {
-            return alarmTime = Console.ReadLine();
+            Console.WriteLine("When would you like your new alarm to go off?");
+            alarmTime = Console.ReadLine();
+            Console.WriteLine("Your new alarm is set to go off at " + alarmTime + " o'clock.");
+            minutes += 1;
+            return alarmTime;
         }
     }
 }
