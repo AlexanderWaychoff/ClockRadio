@@ -11,27 +11,52 @@ namespace ClockRadio
         public static string yesNo;
         public static void ConsiderRadioOnOff()
         {
-            Console.WriteLine("Would you like to turn the radio on? Put your input as lower case.");
-            yesNo = Console.ReadLine();
-            if (yesNo == "yes")
+            if (!(ClockRadio.isOn))
             {
-                ClockRadio.TurnRadioOn();
-            }
-            else
-            {
-                Console.WriteLine("Very good then.");
-                Console.ReadKey();
+                Console.WriteLine("Would you like to turn the radio on? Put your input as lower case.");
+                yesNo = Console.ReadLine();
+                if (yesNo == "yes")
+                {
+                    ClockRadio.TurnRadioOn();
+                }
+                else
+                {
+                    Console.WriteLine("Very good then.");
+                    Console.ReadKey();
+                }
             }
             if (ClockRadio.isOn)
             {
                 Console.WriteLine("The current station is " + ClockRadio.station + " and the time is " + ClockRadio.time + ClockRadio.minutes);
-                Console.WriteLine("Would you like to change the station?  Put your input as lower case.");
+                Console.WriteLine("Would you like to change the station or check your alarm?  Type 'yes', 'no', or 'alarm'.  Put your input as lower case.");
                 yesNo = Console.ReadLine();
                 if (yesNo == "yes")
                 {
                     ClockRadio.ChangeStation();
                     ConsiderRadioOnOff();
 
+                }
+                else if (yesNo == "alarm")
+                {
+                    if (!(ClockRadio.isAlarmOn))
+                    {
+                        Console.WriteLine("Would you like to turn your alarm on?");
+                        yesNo = Console.ReadLine();
+                        if (yesNo == "yes")
+                        {
+                            ClockRadio.TurnAlarmOn();
+                        }
+                    }
+                    else if(ClockRadio.isAlarmOn)
+                    {
+                        Console.WriteLine("Your alarm is set for " + ClockRadio.alarmTime + " o'clock.  Would you like to adjust it?");
+                        yesNo = Console.ReadLine();
+                        if (yesNo == "yes")
+                        {
+                            ClockRadio.AdjustAlarm();
+                        }
+                    }
+                    ConsiderRadioOnOff();
                 }
                 else
                 {

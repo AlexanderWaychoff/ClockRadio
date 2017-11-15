@@ -9,9 +9,11 @@ namespace ClockRadio
     class ClockRadio
     {
         public static bool isOn = false;
+        public static bool isAlarmOn = false;
         public static double station = 90.00;
-        internal static string time = "10:";
+        internal static string time = "10:0";
         public static int minutes = 0;
+        public static string alarmTime = "Twelve";
 
         public static double ChangeStation()
         {
@@ -21,6 +23,14 @@ namespace ClockRadio
         public static bool TurnRadioOn()
         {
             return isOn = true;
+        }
+        public static bool TurnAlarmOn()
+        {
+            return isAlarmOn = true;
+        }
+        public static string AdjustAlarm()
+        {
+            return alarmTime = Console.ReadLine();
         }
     }
 }
