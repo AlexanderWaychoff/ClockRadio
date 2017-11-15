@@ -10,7 +10,7 @@ namespace ClockRadio
     {
         static void Main(string[] args)
         {
-            ClockRadio myClockRadio = new ClockRadio();
+            ClockRadio myClockRadio = new ClockRadio();//use this and refer to myClockRadio to avoid using static
             GetInput.ConsiderRadioOnOff();
         }
     }
